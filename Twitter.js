@@ -1,7 +1,11 @@
-function GASTwitter(){
-    this.init();
+function t_post(){
+    //GASTwitter().post("hogehoge" + Utilities.formatDate(new Date(), "GMT", "yyyy-MM-dd'T'HH:mm:ss'Z'"));
+    
+    gtw.post("hoge" + Utilities.formatDate(new Date(), "GMT", "yyyy-MM-dd'T'HH:mm:ss'Z'"));
 }
-GASTwitter.prototype = {
+
+
+var gtw = ({
     init: function(){
         var oAuthConfig = UrlFetchApp.addOAuthService("twitter");
         oAuthConfig.setAccessTokenUrl("http://api.twitter.com/oauth/access_token");
@@ -9,6 +13,7 @@ GASTwitter.prototype = {
         oAuthConfig.setAuthorizationUrl("http://api.twitter.com/oauth/authorize");
         oAuthConfig.setConsumerKey(ScriptProperties.getProperty("twitterConsumerKey"));
         oAuthConfig.setConsumerSecret(ScriptProperties.getProperty("twitterConsumerSecret"));
+        return this;
     },
     post: function(text){
         var options =
@@ -24,4 +29,4 @@ GASTwitter.prototype = {
         //Logger.log(result.getResponseCode());
         return result;
     }
-}
+}).init();
