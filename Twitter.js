@@ -1,6 +1,4 @@
-function t_post(){
-    //GASTwitter().post("hogehoge" + Utilities.formatDate(new Date(), "GMT", "yyyy-MM-dd'T'HH:mm:ss'Z'"));
-    
+function t_post(){    
     gtw.post("hoge" + Utilities.formatDate(new Date(), "GMT", "yyyy-MM-dd'T'HH:mm:ss'Z'"));
 }
 
